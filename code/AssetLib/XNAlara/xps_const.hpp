@@ -1,5 +1,21 @@
+#ifndef XNALARA_CONSTANTS_H
+#define XNALARA_CONSTANTS_H
+
+#define ASSIMP_XNALARA_IMPORTER_DEBUG 1
+#define ASSIMP_XNALARA_READ_BIN_DEBUG 1
+#define ASSIMP_XNALARA_READ_BIN_HEADER_DEBUG 1
+#define ASSIMP_XNALARA_READ_BIN_BONES_DEBUG 1
+#define ASSIMP_XNALARA_READ_BIN_BONES_DEBUG_2 0
+#define ASSIMP_XNALARA_READ_BIN_MESHES_DEBUG 0
+#define ASSIMP_XNALARA_READ_BIN_MESHES_DEBUG_2 0
+#define ASSIMP_XNALARA_READ_BIN_MESHES_DEBUG_3 0
+#define ASSIMP_XNALARA_READ_BIN_MESHES_DEBUG_4 0
+#define ASSIMP_XNALARA_READ_BIN_MESHES_DEBUG_5 0
+
 // C++
 #include <string>
+
+namespace assimpXnalara {
 
 const int MAGIC_NUMBER = 323232;
 const int XPS_VERSION_MAYOR = 3;
@@ -22,3 +38,7 @@ const std::string TANGENT_SPACE_GREEN = "TangentSpaceGreen";
 const std::string TANGENT_SPACE_BLUE = "TangentSpaceBlue";
 const std::string GLOSS = "gloss";
 const std::string HAS_BONE_DIRECTIONS = "hasBoneDirections";
+
+}
+
+#endif

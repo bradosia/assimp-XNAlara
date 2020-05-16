@@ -29,6 +29,7 @@ set(SOURCES
   code/AssetLib/XNAlara/bin_ops.cpp
   code/AssetLib/XNAlara/read_ascii_xps.cpp
   code/AssetLib/XNAlara/read_bin_xps.cpp
+  code/AssetLib/XNAlara/XnalaraImporter.cpp
 )
 
 set(HEADERS
@@ -38,6 +39,7 @@ set(HEADERS
   code/AssetLib/XNAlara/bin_ops.hpp
   code/AssetLib/XNAlara/read_ascii_xps.hpp
   code/AssetLib/XNAlara/read_bin_xps.hpp
+  code/AssetLib/XNAlara/XnalaraImporter.hpp
 )
 
 set(SHARED_COMPILE_DEFINITIONS
