@@ -11,9 +11,6 @@ OPTION(BUILD_STATIC_LIBS "Build static libraries" ON)
 
 set(CMAKE_CXX_STANDARD 17)
 
-find_package(Boost 1.56 REQUIRED COMPONENTS
-             system filesystem)
-
 # third party
 set(INCLUDE_DIRECTORIES
   ${CMAKE_CURRENT_SOURCE_DIR}
@@ -53,10 +50,6 @@ set(STATIC_COMPILE_DEFINITIONS
 set(LIBRARIES ${LIBRARIES}
     IrrXML
     assimp
-
-    # Boost
-    Boost::system
-    Boost::filesystem
 )
 
 if(WIN32)
@@ -178,24 +171,24 @@ endif()
 if(BUILD_SHARED_LIBS)
   message(STATUS "INSTALL: ${lib_shared_name} TO root=${CMAKE_BINARY_DIR} and current=${CMAKE_CURRENT_BINARY_DIR}")
   install(TARGETS ${lib_shared_name}
-    RUNTIME DESTINATION "${CMAKE_INSTALL_PREFIX}/${BIN_NAME}/modules"
-    ARCHIVE DESTINATION "${CMAKE_INSTALL_PREFIX}/${BIN_NAME}/modules"
-    LIBRARY DESTINATION "${CMAKE_INSTALL_PREFIX}/${BIN_NAME}/modules"
+    RUNTIME DESTINATION "${RELEASE_DIR}/modules"
+    ARCHIVE DESTINATION "${RELEASE_DIR}/modules"
+    LIBRARY DESTINATION "${RELEASE_DIR}/modules"
   )
 endif()
 
 if(BUILD_STATIC_LIBS)
   install(TARGETS ${lib_name} EXPORT ${lib_name}_TARGETS
-    RUNTIME DESTINATION "${CMAKE_INSTALL_PREFIX}/${BIN_NAME}/lib"
-    ARCHIVE DESTINATION "${CMAKE_INSTALL_PREFIX}/${BIN_NAME}/lib"
-    LIBRARY DESTINATION "${CMAKE_INSTALL_PREFIX}/${BIN_NAME}/lib"
+    RUNTIME DESTINATION "${RELEASE_DIR}/lib"
+    ARCHIVE DESTINATION "${RELEASE_DIR}/lib"
+    LIBRARY DESTINATION "${RELEASE_DIR}/lib"
   )
 endif()
 
 install(FILES ${HEADERS}
-  DESTINATION "${CMAKE_INSTALL_PREFIX}/${BIN_NAME}/headers"
+  DESTINATION "${RELEASE_DIR}/headers"
 COMPONENT Headers)
 
-install(FILES "${CMAKE_SOURCE_DIR}/LICENSE" DESTINATION "${CMAKE_INSTALL_PREFIX}/${BIN_NAME}/doc/" RENAME "${lib_name}_LICENSE.txt" )
+install(FILES "${CMAKE_SOURCE_DIR}/LICENSE" DESTINATION "${RELEASE_DIR}/doc/" RENAME "${lib_name}_LICENSE.txt" )
 
 add_subdirectory(test/XNAlara)
