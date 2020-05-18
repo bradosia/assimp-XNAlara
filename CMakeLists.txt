@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.0)
 set(lib_base_name assimp-xnalara)
 project(${lib_base_name} VERSION 1.0.0 LANGUAGES CXX)
 set(RELEASE_DIR "${CMAKE_BINARY_DIR}/${lib_base_name}/")
-set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${RELEASE_DIR})
 
 # Configurable Options
 OPTION(BUILD_SHARED_LIBS "Build shared libraries" ON)
@@ -51,46 +50,6 @@ set(LIBRARIES ${LIBRARIES}
     IrrXML
     assimp
 )
-
-if(WIN32)
-    set(LIBRARIES ${LIBRARIES}
-        # Windows Libraries
-        stdc++
-        gcc
-        uuid
-
-        windowscodecs
-        opengl32
-        gdi32
-        comdlg32
-        oleaut32
-        imm32
-        winmm
-        winspool
-        kernel32
-        user32
-        shell32
-        ole32
-        advapi32
-        ws2_32
-        mingw32
-        rpcrt4
-    )
-elseif(UNIX)
-    set(LIBRARIES ${LIBRARIES}
-        # Unix Libraries
-        stdc++
-        gcc
-        uuid
-
-        pthread
-        glib-2.0
-        gthread-2.0
-        dl
-        m
-    )
-endif()
-
 
 set(SHARED_LINK_LIBRARIES ${LIBRARIES})
 set(STATIC_LINK_LIBRARIES ${LIBRARIES})
